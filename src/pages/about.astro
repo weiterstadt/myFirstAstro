@@ -1,0 +1,66 @@
+---
+import Navigation from "../components/Navigation.astro";
+const pageTitle = "About The Project";
+
+const identity = {
+	name: "James Huang",
+	description: "A website to document my learning journey with Astro.",	
+	hobbies: ["coding", "traveling", "cooking"],
+}
+
+const skills = [
+	"HTML",
+	"CSS",
+	"JavaScript",
+	"Astro"
+];
+---
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+		<style>
+			h1 {
+				color: teal;
+			}
+			h2 {
+				color: olive;
+			}
+			h3 {
+				color: maroon;
+			}
+			nav a {
+				padding: 2px 20px;
+				display: inline-block;
+				border-right: 1px solid #ccc;
+			}
+		</style>
+	</head>
+	<body>
+
+		<Navigation />
+		<h1>{pageTitle}</h1>
+		<h2>My name is {identity.name}</h2>
+
+		<p>{identity.description}</p>
+
+		<h3>My Hobbies</h3>
+		<ul>
+			{identity.hobbies.map((hobby) => (
+				<li>{hobby}</li>
+			))}
+		</ul>
+
+		<h3>My Skills</h3>
+		<ul>
+			{skills.map((skill) => (
+				<li>{skill}</li>
+			))}
+		</ul>
+	</body>
+</html>
